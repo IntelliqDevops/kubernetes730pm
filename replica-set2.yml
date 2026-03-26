@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ghost-rs
+  namespace: test-ns
+  labels:
+    app: cms
+    author: intelliqit
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cms
+  template:
+    metadata:
+      name: ghost-pod
+      labels:
+        app: cms
+    spec:
+      containers:
+        - name: ghost
+          image: ghost
+          ports:
+            - containerPort: 2368
+              hostPort: 8080
+          env:
+            - name: NODE_ENV
+              value: development
+...
