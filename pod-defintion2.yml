@@ -5,7 +5,7 @@ metadata:
   name: postgres-pod
   labels:
     app: db
-    author: intelliqit
+    created_by: intelliqit
 spec:
   containers:
     - name: mydb
